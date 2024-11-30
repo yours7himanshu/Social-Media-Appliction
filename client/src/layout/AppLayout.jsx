@@ -1,6 +1,8 @@
 import Header from "./Header";
 import Title from "../shared/Title";
 import { Grid2 } from "@mui/material";
+import ChatList from "../specific/ChatList";
+import { sampleChats } from "../constants/sampledata";
 
 const AppLayout = () => (WrappedComponent) => {
   return (props) => {
@@ -10,7 +12,7 @@ const AppLayout = () => (WrappedComponent) => {
         <Header />
         <Grid2 container sx={{ height: "100vh",width:"100vw", }}>
           <Grid2 xs={4} sx={{ height: "100%",width:"33.33%",display:{xs:"none",sm:"block"}  }}>
-            First
+            <ChatList chats={sampleChats} />
           </Grid2>
 
           <Grid2 xs={12} sm={8} md={5} sx={{ height: "100%",width:"33.33%" }}>

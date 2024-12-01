@@ -3,6 +3,8 @@ import { configDotenv } from 'dotenv';
 import userRoutes from './routes/userRoutes.js'
 import connectDB from './config/db.js';
 import cookieParser from 'cookie-parser';
+import chatRouter from './routes/chatRoutes.js';
+import { createUser } from './seeders/user.js';
 
 const app = express();
 configDotenv();
@@ -15,8 +17,11 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(express.urlencoded({extended:true}));
 
+
+
 // for apis
 app.use('/users',userRoutes);
+app.use('/api/v2',chatRouter);
 
 
 // testing my backend server
